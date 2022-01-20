@@ -34,7 +34,7 @@ namespace ProiectDAW2
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProiectDAW2", Version = "v1" });
             });
 
-            services.AddDbContext<PaymentDetailContext>(options =>
+            services.AddDbContext<BicycleContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
             );
 
