@@ -23,7 +23,7 @@ namespace ProiectDAW2.Models
         public string Terrain { get; set; }
 
         [Column(TypeName = "int")]
-        public string Length { get; set; }
+        public int Length { get; set; }
 
 /*        [ForeignKey("Bicycle")]
         public int BicycleId { get; set; }*/

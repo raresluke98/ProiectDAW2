@@ -20,7 +20,7 @@ namespace ProiectDAW2.Models
         public string Operation { get; set; }
 
         [Column(TypeName = "int")]
-        public string Cost { get; set; }
+        public int Cost { get; set; }
 
         [ForeignKey("Bicycle")]
         public int BicycleId { get; set; }
