@@ -12,7 +12,6 @@ namespace ProiectDAW2.Models
         [Key]
         public int CompetitionId { get; set; }
 
-        // YYYY-MM-DD
         [Column(TypeName = "nvarchar(50)")]
         public string CompetitionName { get; set; }
 
@@ -25,6 +24,6 @@ namespace ProiectDAW2.Models
         [Column(TypeName = "int")]
         public int Length { get; set; }
 
-        // public List<Appointment> Appointments { get; set; } = new List<Appointment>();
+        public List<Appointment> Appointments { get; set; } = new List<Appointment>();
     }
 }

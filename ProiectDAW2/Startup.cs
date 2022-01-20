@@ -42,6 +42,8 @@ namespace ProiectDAW2
 
             // Configure Services
             services.AddTransient<BicycleService>();
+            services.AddTransient<CompetitionService>();
+            services.AddTransient<ServiceService>();
 
             services.AddCors();
         }

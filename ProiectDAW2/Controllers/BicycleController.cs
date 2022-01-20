@@ -90,7 +90,7 @@ namespace ProiectDAW2.Controllers
         }
         */
 
-        [HttpPost]
+        [HttpPost("add-bicycle")]
         public IActionResult AddBicycle([FromBody] BicycleVM bicycle)
         {
             _bicycleService.AddBicycle(bicycle);

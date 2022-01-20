@@ -21,10 +21,10 @@ namespace ProiectDAW2.Models
         [Column(TypeName = "nvarchar(50)")]
         public string FrameNumber { get; set; }
 
-        // public Description Description { get; set; }
+        public Description Description { get; set; }
 
-        // public List<Service> Services { get; set; } = new List<Service>();
+        public List<Service> Services { get; set; } = new List<Service>();
 
-        // public List<Appointment> Appointments { get; set; } = new List<Appointment>();
+        public List<Appointment> Appointments { get; set; } = new List<Appointment>();
     }
 }

@@ -14,8 +14,10 @@ namespace ProiectDAW2.Models
 
         [ForeignKey("Bicycle")]
         public int BicycleId { get; set; }
+        public Bicycle Bicycle { get; set; }
 
         [ForeignKey("Competition")]
         public int CompetitionId { get; set; }
+        public Competition Competition { get; set; }
     }
 }

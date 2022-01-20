@@ -14,6 +14,19 @@ namespace ProiectDAW2.Models
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Appointment>()
+                .HasOne(b => b.Bicycle)
+                .WithMany(a => a.Appointments)
+                .HasForeignKey(bi => bi.BicycleId);
+
+            modelBuilder.Entity<Appointment>()
+                .HasOne(c => c.Competition)
+                .WithMany(a => a.Appointments)
+                .HasForeignKey(ci => ci.CompetitionId);
+        }
+
         public DbSet<Bicycle> Bicycles { get; set; }
         public DbSet<Competition> Competitions { get; set; }
         public DbSet<Description> Descriptions { get; set; }
