@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ProiectDAW2.Models;
+using ProiectDAW2.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,9 +35,13 @@ namespace ProiectDAW2
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProiectDAW2", Version = "v1" });
             });
 
+            // Configure DBContext
             services.AddDbContext<BicycleDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
             );
+
+            // Configure Services
+            services.AddTransient<BicycleService>();
 
             services.AddCors();
         }

@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProiectDAW2.Models;
+using ProiectDAW2.Services;
+using ProiectDAW2.ViewModels;
 
 namespace ProiectDAW2.Controllers
 {
@@ -15,9 +17,12 @@ namespace ProiectDAW2.Controllers
     {
         private readonly BicycleDbContext _context;
 
-        public BicycleController(BicycleDbContext context)
+        public BicycleService _bicycleService;
+
+        public BicycleController(BicycleDbContext context, BicycleService bicycleService)
         {
             _context = context;
+            _bicycleService = bicycleService;
         }
 
         // GET: api/Bicycle
@@ -72,6 +77,7 @@ namespace ProiectDAW2.Controllers
             return NoContent();
         }
 
+        /*
         // POST: api/Bicycle
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -81,6 +87,14 @@ namespace ProiectDAW2.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetBicycle", new { id = bicycle.BicycleId }, bicycle);
+        }
+        */
+
+        [HttpPost]
+        public IActionResult AddBicycle([FromBody] BicycleVM bicycle)
+        {
+            _bicycleService.AddBicycle(bicycle);
+            return Ok();
         }
 
         // DELETE: api/Bicycle/5
