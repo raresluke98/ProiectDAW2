@@ -13,29 +13,11 @@ namespace ProiectDAW2.Models
         {
 
         }
-        
-        /*
-        public CompetitionContext(DbContextOptions<CompetitionContext> options) : base(options)
-        {
-
-        }
-        */
-        /*
-        public DescriptionContext(DbContextOptions<DescriptionContext> options) : base(options)
-        {
-
-        }
-        */
-        /*
-        public ServiceContext(DbContextOptions<ServiceContext> options) : base(options)
-        {
-
-        }
-        */
 
         public DbSet<Bicycle> Bicycles { get; set; }
         public DbSet<Competition> Competitions { get; set; }
         public DbSet<Description> Descriptions { get; set; }
         public DbSet<Service> Services { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
     }
 }

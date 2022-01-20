@@ -23,6 +23,6 @@ namespace ProiectDAW2.Models
 
         [ForeignKey("Bicycle")]
         public int BicycleId { get; set; }
-        public Bicycle Bicycle { get; set; }
+        // public Bicycle Bicycle { get; set; }
     }
 }

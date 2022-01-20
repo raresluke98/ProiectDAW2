@@ -133,3 +133,4 @@ E:\ProiectDAW2\ProiectDAW2\ProiectDAW2\bin\Debug\net5.0\Microsoft.VisualStudio.W
 E:\ProiectDAW2\ProiectDAW2\ProiectDAW2\bin\Debug\net5.0\System.IO.Pipelines.dll
 E:\ProiectDAW2\ProiectDAW2\ProiectDAW2\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 E:\ProiectDAW2\ProiectDAW2\ProiectDAW2\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+E:\ProiectDAW2\ProiectDAW2\ProiectDAW2\obj\Debug\net5.0\ProiectDAW2.csproj.AssemblyReference.cache

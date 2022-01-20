@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProiectDAW2.Models;
 
 namespace ProiectDAW2.Migrations
 {
     [DbContext(typeof(BicycleDbContext))]
-    partial class BicycleDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220120173932_AddAppointment")]
+    partial class AddAppointment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,6 +34,10 @@ namespace ProiectDAW2.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("AppointmentId");
+
+                    b.HasIndex("BicycleId");
+
+                    b.HasIndex("CompetitionId");
 
                     b.ToTable("Appointments");
                 });
@@ -102,6 +108,9 @@ namespace ProiectDAW2.Migrations
 
                     b.HasKey("DescriptionId");
 
+                    b.HasIndex("BicycleId")
+                        .IsUnique();
+
                     b.ToTable("Descriptions");
                 });
 
@@ -126,7 +135,56 @@ namespace ProiectDAW2.Migrations
 
                     b.HasKey("ServiceId");
 
+                    b.HasIndex("BicycleId");
+
                     b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("ProiectDAW2.Models.Appointment", b =>
+                {
+                    b.HasOne("ProiectDAW2.Models.Bicycle", null)
+                        .WithMany("Appointments")
+                        .HasForeignKey("BicycleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProiectDAW2.Models.Competition", null)
+                        .WithMany("Appointments")
+                        .HasForeignKey("CompetitionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ProiectDAW2.Models.Description", b =>
+                {
+                    b.HasOne("ProiectDAW2.Models.Bicycle", null)
+                        .WithOne("Description")
+                        .HasForeignKey("ProiectDAW2.Models.Description", "BicycleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ProiectDAW2.Models.Service", b =>
+                {
+                    b.HasOne("ProiectDAW2.Models.Bicycle", null)
+                        .WithMany("Services")
+                        .HasForeignKey("BicycleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ProiectDAW2.Models.Bicycle", b =>
+                {
+                    b.Navigation("Appointments");
+
+                    b.Navigation("Description");
+
+                    b.Navigation("Services");
+                });
+
+            modelBuilder.Entity("ProiectDAW2.Models.Competition", b =>
+                {
+                    b.Navigation("Appointments");
                 });
 #pragma warning restore 612, 618
         }

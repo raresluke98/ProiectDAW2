@@ -25,8 +25,6 @@ namespace ProiectDAW2.Models
         [Column(TypeName = "int")]
         public int Length { get; set; }
 
-/*        [ForeignKey("Bicycle")]
-        public int BicycleId { get; set; }*/
-        public List<Bicycle> Bicycles { get; set; } = new List<Bicycle>();
+        // public List<Appointment> Appointments { get; set; } = new List<Appointment>();
     }
 }
