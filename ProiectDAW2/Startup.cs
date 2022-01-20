@@ -38,6 +38,18 @@ namespace ProiectDAW2
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
             );
 
+            services.AddDbContext<CompetitionContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
+            );
+
+            services.AddDbContext<DescriptionContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
+            );
+
+            services.AddDbContext<ServiceContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
+            );
+
             services.AddCors();
         }
 
