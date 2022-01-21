@@ -30,7 +30,7 @@ namespace ProiectDAW2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -68,6 +68,13 @@ namespace ProiectDAW2
             }
 
             app.UseRouting();
+
+            app.UseCors(options => options
+                .WithOrigins(new[] { "http://localhost:4200" })
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials()
+            );
 
             app.UseAuthorization();
 
