@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ProiectDAW2.Data;
+using ProiectDAW2.Helpers;
 using ProiectDAW2.Models;
 using ProiectDAW2.Services;
 using System;
@@ -44,6 +46,9 @@ namespace ProiectDAW2
             services.AddTransient<BicycleService>();
             services.AddTransient<CompetitionService>();
             services.AddTransient<ServiceService>();
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<JwtService>();
 
             services.AddCors();
         }
