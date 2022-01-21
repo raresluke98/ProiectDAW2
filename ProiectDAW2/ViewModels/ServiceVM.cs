@@ -12,5 +12,7 @@ namespace ProiectDAW2.ViewModels
         public string Operation { get; set; }
 
         public int Cost { get; set; }
+
+        public int BicycleId { get; set; }
     }
 }

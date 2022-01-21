@@ -12,5 +12,9 @@ namespace ProiectDAW2.ViewModels
         public string Model { get; set; }
 
         public string FrameNumber { get; set; }
+
+        public List<int> ServiceIds { get; set; }
+
+        public List<int> CompetitionIds { get; set; }
     }
 }

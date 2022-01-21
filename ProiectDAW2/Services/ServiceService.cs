@@ -21,7 +21,8 @@ namespace ProiectDAW2.Services
             {
                 AppointmentDate = service.AppointmentDate,
                 Operation = service.Operation,
-                Cost = service.Cost
+                Cost = service.Cost,
+                BicycleId = service.BicycleId
             };
             _context.Services.Add(_service);
             _context.SaveChanges();
