@@ -46,6 +46,7 @@ namespace ProiectDAW2
             services.AddTransient<BicycleService>();
             services.AddTransient<CompetitionService>();
             services.AddTransient<ServiceService>();
+            services.AddTransient<DescriptionService>();
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<JwtService>();
