@@ -126,9 +126,7 @@ namespace ProiectDAW2
         {
             // add hardcoded test users on DB startup
             var testUsers = new List<User>
-            {
-                // new User { UserId = 1, FirstName = "Admin", LastName = "User", Username = "admin", PasswordHash = BCryptNet.HashPassword("admin"), Role = Role.Admin},
-                // new User { UserId = 2, FirstName = "Normal", LastName = "User", Username = "user", PasswordHash = BCryptNet.HashPassword("user"), Role = Role.User}
+            { 
                 new User { FirstName = "Admin", LastName = "User", Username = "admin", PasswordHash = BCryptNet.HashPassword("admin"), Role = Role.Admin},
                 new User { FirstName = "Normal", LastName = "User", Username = "user", PasswordHash = BCryptNet.HashPassword("user"), Role = Role.User}
             };
