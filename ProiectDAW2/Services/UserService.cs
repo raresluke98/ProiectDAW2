@@ -25,7 +25,6 @@ namespace ProiectDAW2.Services
             private DataContext _context;
             private IJwtUtils _jwtUtils;
             private readonly AppSettings _appSettings;
-
             public UserService(
                 DataContext context,
                 IJwtUtils jwtUtils,
@@ -35,6 +34,7 @@ namespace ProiectDAW2.Services
                 _jwtUtils = jwtUtils;
                 _appSettings = appSettings.Value;
             }
+
 
             public AuthenticateResponse Authenticate(AuthenticateRequest model)
             {
