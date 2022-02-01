@@ -47,29 +47,15 @@ namespace ProiectDAW2
                 x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-
-            /*
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProiectDAW2", Version = "v1" });
-            });
-            */
-
-            // Configure DBContext
-
-            
        
 
             // Configure Services
-            /*
+
             services.AddTransient<BicycleService>();
             services.AddTransient<CompetitionService>();
             services.AddTransient<ServiceService>();
             services.AddTransient<DescriptionService>();
-            */
 
-            // services.AddScoped<IUserRepository, UserRepository>();
-            // services.AddScoped<JwtService>();
 
             services.AddScoped<IJwtUtils, JwtUtils>();
             services.AddScoped<IUserService, UserService>();
@@ -83,12 +69,6 @@ namespace ProiectDAW2
 
             app.UseRouting();
 
-            /*
-            app.UseCors(options =>
-            options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader()
-            );
-            */
-
             app.UseCors(x => x
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
@@ -99,26 +79,7 @@ namespace ProiectDAW2
             app.UseMiddleware<JwtMiddleware>();
 
             app.UseEndpoints(x => x.MapControllers());
-            // app.UseAuthorization();
-
-            /*
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProiectDAW2 v1"));
-            }
-            */
-
-            /*
-            app.UseCors(options => options
-                .WithOrigins(new[] { "http://localhost:4200" })
-                .AllowAnyHeader()
-                .AllowAnyMethod()
-                .AllowCredentials()
-            );
-            */
-
+            
 
         }
         
