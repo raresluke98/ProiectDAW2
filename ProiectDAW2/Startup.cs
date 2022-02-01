@@ -9,7 +9,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ProiectDAW2.Authorization;
-using ProiectDAW2.Data;
 using ProiectDAW2.Helpers;
 using ProiectDAW2.Models;
 using ProiectDAW2.Services;
