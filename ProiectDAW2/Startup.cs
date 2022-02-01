@@ -97,8 +97,8 @@ namespace ProiectDAW2
 
             app.UseMiddleware<JwtMiddleware>();
 
-            app.UseAuthorization();
             app.UseEndpoints(x => x.MapControllers());
+            // app.UseAuthorization();
 
             /*
             if (env.IsDevelopment())

@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProiectDAW2.Entities;
 using ProiectDAW2.Models;
 using ProiectDAW2.Models.Users;
 using ProiectDAW2.Services;
+using ProiectDAW2.Authorization;
 
 namespace ProiectDAW2.Controllers
 {
@@ -27,7 +27,7 @@ namespace ProiectDAW2.Controllers
             return Ok(response);
         }
 
-        // [Authorize(Role.Admin)]
+        [Authorize(Role.Admin)]
         [HttpGet]
         public IActionResult GetAll()
         {
