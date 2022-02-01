@@ -21,9 +21,9 @@ namespace ProiectDAW2.Data
             return user;
         }
 
-        public User GetByEmail(string email)
+        public User GetByUsername(string username)
         {
-            return _context.Users.FirstOrDefault(u => u.Email == email);
+            return _context.Users.FirstOrDefault(u => u.Username == username);
         }
 
         public User GetById(int id)

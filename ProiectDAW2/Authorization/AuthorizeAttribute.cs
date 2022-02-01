@@ -6,7 +6,6 @@ using ProiectDAW2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProiectDAW2.Authorization
 {
@@ -32,7 +31,7 @@ namespace ProiectDAW2.Authorization
             if (user == null || (_roles.Any() && !_roles.Contains(user.Role)))
             {
                 // not logged in or role not auth
-                context.Result = new JsonResult(new { message = "Unauthorized" }){ StatusCode = StatusCode.Status401Unauthorized };
+                context.Result = new JsonResult(new { message = "Unauthorized" }){ StatusCode = StatusCodes.Status401Unauthorized };
             }
         }
     }

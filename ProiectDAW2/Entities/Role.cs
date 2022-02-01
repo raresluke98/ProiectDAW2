@@ -10,4 +10,5 @@ namespace ProiectDAW2.Entities
         Admin,
         User
     }
+
 }

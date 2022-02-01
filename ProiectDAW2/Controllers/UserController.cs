@@ -3,11 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ProiectDAW2.Entities;
 using ProiectDAW2.Models;
 using ProiectDAW2.Models.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using static ProiectDAW2.Services.UserService;
+using ProiectDAW2.Services;
 
 namespace ProiectDAW2.Controllers
 {
@@ -31,7 +27,7 @@ namespace ProiectDAW2.Controllers
             return Ok(response);
         }
 
-        [Authorize(Role.Admin)]
+        // [Authorize(Role.Admin)]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -44,7 +40,7 @@ namespace ProiectDAW2.Controllers
         {
             // only admins can access other user records
             var currentUser = (User)HttpContext.Items["User"];
-            if (id != currentUser.Id && currentUser.Role != Role.Admin)
+            if (id != currentUser.UserId && currentUser.Role != Role.Admin)
                 return Unauthorized(new { message = "Unauthorized" });
 
             var user = _userService.GetById(id);

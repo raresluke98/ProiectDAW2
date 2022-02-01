@@ -60,10 +60,12 @@ namespace ProiectDAW2
             */
 
             // Configure Services
+            /*
             services.AddTransient<BicycleService>();
             services.AddTransient<CompetitionService>();
             services.AddTransient<ServiceService>();
             services.AddTransient<DescriptionService>();
+            */
 
             // services.AddScoped<IUserRepository, UserRepository>();
             // services.AddScoped<JwtService>();
@@ -95,6 +97,7 @@ namespace ProiectDAW2
 
             app.UseMiddleware<JwtMiddleware>();
 
+            app.UseAuthorization();
             app.UseEndpoints(x => x.MapControllers());
 
             /*
@@ -115,12 +118,7 @@ namespace ProiectDAW2
             );
             */
 
-            // app.UseAuthorization();
 
-            app.UseEndpoints(x =>
-            {
-                x.MapControllers();
-            });
         }
 
         private void createTestUsers(DataContext context)

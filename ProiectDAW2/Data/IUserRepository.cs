@@ -9,7 +9,7 @@ namespace ProiectDAW2.Data
     public interface IUserRepository
     {
         User Create(User user);
-        User GetByEmail(string email);
+        User GetByUsername(string username);
         User GetById(int id);
     }
 }

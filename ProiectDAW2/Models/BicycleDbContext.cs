@@ -26,7 +26,7 @@ namespace ProiectDAW2.Models
                 .WithMany(a => a.Appointments)
                 .HasForeignKey(ci => ci.CompetitionId);
 
-            modelBuilder.Entity<User>(entity => { entity.HasIndex(e => e.Email).IsUnique(); });
+            modelBuilder.Entity<User>(entity => { entity.HasIndex(e => e.Username).IsUnique(); });
         }
 
         public DbSet<Bicycle> Bicycles { get; set; }
