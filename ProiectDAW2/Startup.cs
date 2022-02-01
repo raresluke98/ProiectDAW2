@@ -44,10 +44,13 @@ namespace ProiectDAW2
                 x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+
+            /*
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProiectDAW2", Version = "v1" });
             });
+            */
 
             // Configure DBContext
             /*
