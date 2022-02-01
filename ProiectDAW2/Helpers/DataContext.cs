@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace ProiectDAW2.Helpers
-{
+{/*
     public class DataContext : DbContext
     {
         public DbSet<User> Users { get; set; }
@@ -25,4 +25,5 @@ namespace ProiectDAW2.Helpers
             options.UseInMemoryDatabase("TestDb");
         }
     }
+*/
 }

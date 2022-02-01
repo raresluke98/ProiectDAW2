@@ -20,11 +20,11 @@ namespace ProiectDAW2.Services
 
     public class UserService : IUserService
     {
-        private DataContext _context;
+        private BicycleDbContext _context;
         private IJwtUtils _jwtUtils;
         private readonly AppSettings _appSettings;
         public UserService(
-            DataContext context,
+            BicycleDbContext context,
             IJwtUtils jwtUtils,
             IOptions<AppSettings> appSettings)
         {

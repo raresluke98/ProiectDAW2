@@ -36,7 +36,10 @@ namespace ProiectDAW2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>();
+            // services.AddDbContext<DataContext>();
+            services.AddDbContext<BicycleDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
+            );
             services.AddCors();
             services.AddControllers().AddJsonOptions(x =>
             {
@@ -53,11 +56,9 @@ namespace ProiectDAW2
             */
 
             // Configure DBContext
-            /*
-            services.AddDbContext<BicycleDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
-            );
-            */
+
+            
+       
 
             // Configure Services
             /*
@@ -76,9 +77,9 @@ namespace ProiectDAW2
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, DataContext context)
+        public void Configure(IApplicationBuilder app, BicycleDbContext context)
         {
-            createTestUsers(context);
+            // createTestUsers(context);
 
             app.UseRouting();
 
@@ -120,17 +121,20 @@ namespace ProiectDAW2
 
 
         }
-
-        private void createTestUsers(DataContext context)
+        
+        private void createTestUsers(BicycleDbContext context)
         {
             // add hardcoded test users on DB startup
             var testUsers = new List<User>
             {
-                new User { UserId = 1, FirstName = "Admin", LastName = "User", Username = "admin", PasswordHash = BCryptNet.HashPassword("admin"), Role = Role.Admin},
-                new User { UserId = 2, FirstName = "Normal", LastName = "User", Username = "user", PasswordHash = BCryptNet.HashPassword("user"), Role = Role.User}
+                // new User { UserId = 1, FirstName = "Admin", LastName = "User", Username = "admin", PasswordHash = BCryptNet.HashPassword("admin"), Role = Role.Admin},
+                // new User { UserId = 2, FirstName = "Normal", LastName = "User", Username = "user", PasswordHash = BCryptNet.HashPassword("user"), Role = Role.User}
+                new User { FirstName = "Admin", LastName = "User", Username = "admin", PasswordHash = BCryptNet.HashPassword("admin"), Role = Role.Admin},
+                new User { FirstName = "Normal", LastName = "User", Username = "user", PasswordHash = BCryptNet.HashPassword("user"), Role = Role.User}
             };
             context.Users.AddRange(testUsers);
             context.SaveChanges();
         }
+        
     }
 }
