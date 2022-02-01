@@ -10,11 +10,11 @@ namespace ProiectDAW2.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class UserController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private IUserService _userService;
 
-        public UserController(IUserService userService)
+        public UsersController(IUserService userService)
         {
             _userService = userService;
         }
