@@ -17,20 +17,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static ProiectDAW2.Services;
 using static ProiectDAW2.Services.UserService;
 using ProiectDAW2.Entities;
+using System.Text.Json.Serialization;
 
 namespace ProiectDAW2
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)

@@ -1,4 +1,7 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using ProiectDAW2.Helpers;
+using ProiectDAW2.Models;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -30,7 +33,7 @@ namespace ProiectDAW2.Authorization
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[] { new Claim("id", user.Id.ToString()) }),
+                Subject = new ClaimsIdentity(new[] { new Claim("id", user.UserId.ToString()) }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };

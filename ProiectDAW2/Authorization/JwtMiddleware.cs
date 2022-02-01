@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
+using ProiectDAW2.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ namespace ProiectDAW2.Authorization
 {
     public class JwtMiddleware
     {
-        private readonly ReqeustDelegate _next;
+        private readonly RequestDelegate _next;
         private readonly AppSettings _appSettings;
         
         public JwtMiddleware(RequestDelegate next, IOptions<AppSettings> appSettings)
